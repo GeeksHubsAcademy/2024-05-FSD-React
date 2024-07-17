@@ -1,33 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import { CInput } from "../CInput/CInput";
 
 export const Login = () => {
-  const [credentials, setCredentials] = useState(
-    {
-      email: "",
-      password: ""
-    }
-  )
+	const [credentials, setCredentials] = useState({
+		email: "",
+		password: "",
+	});
 
+	function handleChange(e) {
+		console.log("HandleChange");
+		setCredentials((prevState) => ({
+			...prevState,
+			[e.target.name]: e.target.value,
+		}));
+	}
 
-  function handleChange(e) {
-    console.log('HandleChange');
-    setCredentials(prevState => (
-      {
-        ...prevState,
-        [e.target.name]: e.target.value
-      }
-    ))
-  }
+	function login() {
+		console.log("LOGIN");
+		console.log(credentials);
+	}
 
-  function login() {
-    console.log('LOGIN');
-    console.log(credentials);
-  }
-
-
-
-
-  // OPCION 1
+	// OPCION 1
 	// const [email, setEmail] = useState("");
 	// const [password, setPassword] = useState("");
 
@@ -58,9 +51,30 @@ export const Login = () => {
 
 	return (
 		<>
-			<h1> Login </h1>
+			<h1>Login</h1>
 			<div>
-				{/* <label htmlFor="email">Email:</label> */}
+				<CInput
+					type="email"
+					name="email"
+					placeholder="Email"
+					emitFunction={handleChange}
+				/>
+			</div>
+			<div>
+				<CInput
+					type="password"
+					name="password"
+					placeholder="Password"
+					emitFunction={handleChange}
+				/>
+			</div>
+			<div>
+				<CInput type="button" value="Login" emitOnClickButton={login} />
+			</div>
+
+			{/* <h1> Login </h1>
+			<div>
+				<label htmlFor="email">Email:</label>
 				<input
 					type="email"
 					name="email"
@@ -69,7 +83,7 @@ export const Login = () => {
 				/>
 			</div>
 			<div>
-				{/* <label htmlFor="password">Password:</label> */}
+        <label htmlFor="password">Password:</label>
 				<input
 					type="password"
 					name="password"
@@ -77,7 +91,7 @@ export const Login = () => {
 					onChange={handleChange}
 				/>
 			</div>
-			<input type="button" value="Login" onClick={login} />
+			<input type="button" value="Login" onClick={login} /> */}
 		</>
 	);
-}
+};
