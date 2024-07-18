@@ -7,11 +7,15 @@ export const CInput = (
     placeholder = "",
     emitFunction,
     emitOnClickButton,
-    value
+    value,
+    label
   } 
 ) => {
   return (
     <>
+      <div>
+        <label htmlFor="">{label}</label>
+      </div>
       <input 
         type={type} 
         name={name} 
