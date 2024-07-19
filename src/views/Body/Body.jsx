@@ -1,9 +1,10 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
-import { Login } from '../../components/Login/Login';
 import { Home } from '../Home/Home';
 import { NotFound } from '../NotFound/NotFound';
 import { Services } from '../Services/Services';
+import { Login } from '../Login/Login';
+import { Register } from '../Register/Register';
 
 export const Body = () => {
   return (
@@ -12,7 +13,8 @@ export const Body = () => {
         <Route path="*" element={<NotFound />}/>
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/services" element={<Services />}/>
+        <Route path="/create-services" element={<Services />}/>
+        <Route path="/register" element={<Register />}/>
       </Routes>
     </>
   )
