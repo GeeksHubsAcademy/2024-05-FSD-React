@@ -20,3 +20,11 @@ body {
   /* min-width: 320px; */
   /* min-height: 100vh; */
 }
+
+.flex {
+  display: flex;
+}
+
+.justify-space-betwwen {
+  justify-content: space-between;
+}

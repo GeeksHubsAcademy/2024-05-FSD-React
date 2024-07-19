@@ -7,10 +7,12 @@ export const Header = () => {
 
 	return (
 		<>
-			<CSurfer path="/" content="Home" />
-			<CSurfer path="/services" content="Services" />
-			<div onClick={() => navigate("/login")}> Login </div>
-			<CSurfer path="/register" content="Register" />
+			<div className="flex justify-space-betwwen">
+				<CSurfer path="/" content="Home" />
+				<CSurfer path="/services" content="Services" />
+				<div onClick={() => navigate("/login")}> Login </div>
+				<CSurfer path="/register" content="Register" />
+			</div>
 		</>
 	);
 };
