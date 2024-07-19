@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { registerUser } from "../../services/apiCalls";
 
 export const Register = () => {
 	const [credentials, setCredentials] = useState({
@@ -22,18 +23,9 @@ export const Register = () => {
 			// validar la data voy a enviar
 
 			// consumir la api
-			const request = await fetch("http://localhost:4000/register", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(credentials),
-			});
+			const response = await registerUser(credentials)
 
-			const result = await request.json();
-
-			console.log(result);
-
+			console.log(response);
 			// su api devuelve ok redirigo a una pagina Dashboard
 
 			// Si la api devuelve false mostramos mensaje de error
