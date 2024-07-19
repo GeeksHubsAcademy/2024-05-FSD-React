@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CCard } from "../../components/CCard/CCard";
 
 export const Books = () => {
 	const [books, setBooks] = useState([]);
@@ -21,11 +22,8 @@ export const Books = () => {
 
 	return (
 		<>
-			{books.map((book) => (
-        <div key={book.id} className="card">
-          <h1> {book.title} </h1>
-				  <p> { book.description }</p>
-        </div>
+			{books.map((book, index) => (
+				<CCard key={book.id} name={book.title} description={book.description} />
 			))}
 		</>
 	);
